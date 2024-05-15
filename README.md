@@ -17,9 +17,13 @@ Make sure you have the following installed:
 
 - git clone https://github.com/ejtmaravillas/MOIHackathon
 
-### Install dependencies
+### Install Dependencies
 
-- cd to the project root and run npm install
+Navigate into the project directory and install the required dependencies:
+
+```bash
+cd your-repository
+npm install
 
 ### Emulate
 
