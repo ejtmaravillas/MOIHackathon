@@ -85,5 +85,4 @@ ionic serve
 - On the top left corner is a drop-down menu (Dimensions) where you can choose which mobile device you want the pages to be displayed on.
 
 ## Misc
-APK
-- https://drive.google.com/file/d/1TUYwme-F3RtUtYxI-NMQ_jFsgJt6DYTl/view?usp=drive_link
+The APK file for this app can also be downloaded through [Google Drive]( https://drive.google.com/file/d/1TUYwme-F3RtUtYxI-NMQ_jFsgJt6DYTl/view?usp=drive_link)
