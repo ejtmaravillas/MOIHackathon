@@ -27,17 +27,17 @@ If given more time, we would have liked to explore other ideas:
 ### Prerequisites
 Make sure you have the following installed:
 
-- Node.js (https://nodejs.org/en/download)
+- [Node.js](https://nodejs.org/en/download)
 - npm (Node package manager, comes with Node.js)
-- git (you can download the link from here https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- git (you can download from [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git))
 
 ### Install Ionic CLI globally
 
-- run `npm install -g @ionic/cli@latest` in the terminal
+- Run `npm install -g @ionic/cli@latest` in the terminal
 
 ### Clone the repository
 
-- run `git clone https://github.com/ejtmaravillas/MOIHackathon`
+- Run `git clone https://github.com/ejtmaravillas/MOIHackathon`
 
 ### Install dependencies
 
@@ -50,14 +50,14 @@ npm install
 
 ### Run
 
-- run `ionic serve` in the terminal from the project root directory
+- Run `ionic serve` in the terminal from the project root directory
 
 ```bash
 ionic serve
 ```
 ### Troubleshooting
 
-- if you encounter an error like this (after running `ionic serve`) 
+- If you encounter an error like this (after running `ionic serve`) 
 
 ```bash
 [ERROR] Invalid project type: angular-standalone (project config:
@@ -69,7 +69,7 @@ ionic serve
 Bad project type: undefined
 ```
 
-- run
+- Run
 ```bash
 npm install -g --force @ionic/cli
 ```
