@@ -57,7 +57,7 @@ ionic serve
 ```
 ### Troubleshooting
 
-- if you encounter an error after running `ionic serve` like this
+- if you encounter an error like this (after running `ionic serve`) 
 
 ```bash
 [ERROR] Invalid project type: angular-standalone (project config:
@@ -69,7 +69,7 @@ ionic serve
 Bad project type: undefined
 ```
 
-- To fix this, run 
+- run
 ```bash
 npm install -g --force @ionic/cli
 ```
