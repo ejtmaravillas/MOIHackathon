@@ -50,7 +50,7 @@ npm install
 
 ### Run
 
-- run `ionic serve` in the terminal from the project root
+- run `ionic serve` in the terminal from the project root directory
 
 ```bash
 ionic serve
