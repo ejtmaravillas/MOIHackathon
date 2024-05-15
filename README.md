@@ -11,20 +11,28 @@ Make sure you have the following installed:
 
 - Node.js (https://nodejs.org/en/download)
 - npm (Node package manager, comes with Node.js)
-- install Ionic CLI globally (npm install -g ionic)
+
+### Install ionic CLI globally
+
+- run `npm install -g ionic` in the terminal \
 
 ### Clone the repository
 
-- git clone https://github.com/ejtmaravillas/MOIHackathon
+- run `git clone https://github.com/ejtmaravillas/MOIHackathon`
 
 ### Install Dependencies
 
 Navigate into the project directory and install the required dependencies:
 
 ```bash
-cd your-repository
+cd /project/root
 npm install
+```
 
-### Emulate
+### Run
 
-- run ionic serve in a termin from the project root
+- run ionic serve in a terminal from the project root
+
+```bash
+ionic serve
+```
