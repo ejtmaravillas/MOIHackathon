@@ -57,7 +57,7 @@ ionic serve
 ```
 ### Troubleshooting
 
-- if you encounter an error after ionic serve, this is because of the package-lock.json.
+- if you encounter an error after running `ionic serve` like this
 
 ```bash
 [ERROR] Invalid project type: angular-standalone (project config:
