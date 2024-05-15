@@ -1,0 +1,210 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="padding-top: 10px; padding-bottom: 0;">
+    <ion-buttons slot="start">
+      <ion-button (click)="gotoProfile()">
+        <ion-img
+                src="../../assets/back.png"
+              ></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <h3>Help</h3>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-card class="user-card">
+    <ion-card-content class="user-card-content">
+      <ion-item lines="none">
+        <ion-img src="../../assets/MOI.png"></ion-img>
+        <ion-label>
+          <h3>How can I help you?</h3>
+          <ion-button>
+            <ion-row>
+              <ion-col size="3">
+                <ion-img src="../../assets/chat.png"></ion-img>
+              </ion-col>
+              <ion-col size="9">
+                <h2 class="ion-text-left">Start Chat</h2>
+              </ion-col>
+            </ion-row>
+          </ion-button>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+    </ion-card>
+  <h2 class="ion-text-center" style="color: #2A1C03; padding: 0 0 10px 0; margin-top: -10px; font-size: 20px; font-weight: bold;">All channels are available 24/7</h2>
+  <p class="ion-text-center" style="color: #2A1C03; padding: 0; margin: 0; margin-top: -10px; font-size: 15px;">Choose your preferred contact channel</p>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-content>
+            <ion-img src="../../assets/envelope.png"></ion-img>
+            <h2 class="ion-text-center">Contact us</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-content>
+            <ion-img src="../../assets/faq.png"></ion-img>
+            <h2 class="ion-text-center">FAQ's</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-content>
+            <ion-img class="whatsappimg" src="../../assets/whatsapp.png" style="background-color: #00E510; border-radius: 30px; padding: 10px; size: 20px;"></ion-img>
+            <h2 class="ion-text-center">What's App chat</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6">
+        <ion-card>
+          <ion-card-content>
+            <ion-img src="../../assets/newmail.png"></ion-img>
+            <h2 class="ion-text-center">Complaints</h2>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card class="customer-service">
+    <ion-card-content >
+      <ion-item lines="none" style="--background: white; margin: 0;">
+        <ion-img src="../../assets/call.png"></ion-img>
+        <ion-label>
+          <h2 class="ion-text-center" style="color:#2A1C03; font-size: 18px;">Customer Service</h2>
+          <h2 class="ion-text-center" style="color:#2A1C03; font-size: 23px; font-weight: bold; padding-top: 10px">Call us on 8005000</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-item style="--background: transparent" lines="none">
+    <ion-img class="mappin" src="../../assets/mappin.png"></ion-img>
+    <ion-label>
+      <h2 style="color: gray; margin: 2px 0px 0px 10px; padding: 0px 0 0px 5px; font-size: 20px; font-weight: bold;">Main locations</h2>
+    </ion-label>
+  </ion-item>
+  <ion-list style="background-color: transparent; ">
+    <ion-item lines="none" style="border-radius: 15px; padding: 0 0 0 0; margin: -5px 10px 15px 10px; --background:transparent; border: 2px solid #E9A522; ">
+      <ion-row style="padding: 0 0 0 0; margin: -15px; background:transparent;">
+        <ion-col size="9">
+          <h1 style="background:transparent; color:#2A1C03; font-size: 20px; padding: 5px 0 0 10px; margin: 2px 0 0 0; font-weight: bold;">Capital Police Directorate</h1>
+          <h1 style="background:transparent; color:#2A1C03; font-size: 15px; padding: 0 0 0 10px; margin: 0;">Abu Dhabi</h1>
+        </ion-col>
+        <ion-col size="1" style="background:transparent; padding-left:50px">
+        </ion-col>
+        <ion-img src="../../assets/navarrow.png" style="padding-top: 10px"></ion-img>
+        <ion-col size="2" style="--background:red;">
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item lines="none" style="border-radius: 15px; padding: 0 0 0 0; margin: -5px 10px 15px 10px; --background:transparent; border: 2px solid #E9A522; ">
+      <ion-row style="padding: 0 0 0 0; margin: -15px; background:transparent;">
+        <ion-col size="9">
+          <h1 style="background:transparent; color:#2A1C03; font-size: 20px; padding: 15px 0 0 10px; margin: 2px 0 0 0; font-weight: bold;">Khalidya Comprehensize Police Station</h1>
+          <h1 style="background:transparent; color:#2A1C03; font-size: 15px; padding: 0 0 0 10px; margin: 0;">Abu Dhabi</h1>
+        </ion-col>
+        <ion-col size="1" style="background:transparent; padding-left:50px">
+        </ion-col>
+        <ion-img src="../../assets/navarrow.png" style="padding-top: 10px"></ion-img>
+        <ion-col size="2" style="--background:red;">
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item lines="none" style="border-radius: 15px; padding: 0 0 0 0; margin: -5px 10px 15px 10px; --background:transparent; border: 2px solid #E9A522; ">
+      <ion-row style="padding: 0 0 0 0; margin: -15px; background:transparent;">
+        <ion-col size="9">
+          <h1 style="background:transparent; color:#2A1C03; font-size: 20px; padding: 15px 0 0 10px; margin: 2px 0 0 0; font-weight: bold;">Shaabya Comprehensize Police Station</h1>
+          <h1 class="ion-text-left" style="background:transparent; color:#2A1C03; font-size: 15px; padding: 0 0 0 10px; margin: 0;">Abu Dhabi</h1>
+        </ion-col>
+        <ion-col size="1" style="background:transparent; padding-left:50px">
+        </ion-col>
+        <ion-img src="../../assets/navarrow.png" style="padding-top: 10px"></ion-img>
+        <ion-col size="2" style="--background:red;">
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-toolbar>
+  <ion-grid [fixed]="true">
+    <ion-row wrap>
+      <ion-col size="12/5">
+        <ion-button>
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/home.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Home</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button>
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/services.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Services</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button (click)="gotoHelp()">
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/help.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Help</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button (click)="gotoRewards()">
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/reward.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Rewards</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button (click)="gotoProfile()">
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/profile.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Profile</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>

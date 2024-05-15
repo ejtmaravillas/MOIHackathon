@@ -1,0 +1,72 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="padding-top: 10px; padding-bottom: 0;">
+    <ion-buttons slot="start">
+      <ion-button (click)="backPage()">
+        <ion-img
+                src="../../assets/close.png"
+              ></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <h3>Points: {{score}}</h3>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="progressbar-grid">
+    <ion-row>
+      <ion-col size="11">
+        <ion-progress-bar class="progbar" value={{progTotal}} color="warning"></ion-progress-bar>
+      </ion-col>
+      <ion-col class="coin-col" size="1">
+        <img src="../../assets/coin.png"/>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="slides">
+    <swiper-container style="padding-bottom: 50px;"
+      #swiper
+      [modules]="swiperModules"
+      (swiperinit)="swiperInit()"
+      (swiperslidechange)="swiperSlideChanged()"
+      [nagitavion]='true'
+      [pagination]="true"
+      [direction]="'horizontal'"
+      [observer]="true"
+      [observeParents]="true"
+      [parallax]="true"
+      effect="flip"
+      [slidesPerView]="1">
+      @for (item of questions; track item) {
+      <swiper-slide class="gameSlide">
+        <h2 style="padding-left: 10px;">{{item.question}}</h2>
+        <ion-card>
+          <ion-img
+          src="../../assets/game/{{item.difficulty}}{{item.picture}}.png"
+          ></ion-img>
+        </ion-card>
+      </swiper-slide>
+      }
+    </swiper-container>
+  </div>
+  @if (submit === 1) {
+    <ion-alert class="custom-alert" isOpen="true" [header]="customHeader" [message]="customMessage" [buttons]="['Ok']"></ion-alert>
+    <!-- <ion-alert header="Success" [message]="congrats" isOpen="true" [buttons]="['Ok']"></ion-alert> -->
+  }
+  <div class="container">
+    <ion-list class="custom-list">
+      @for (q of currentquestion; track q) {
+        <ion-item lines="none" (click)="getAnswer($index)" [style.background-color]="answers[image_num - 1].color[$index]">
+          {{ q }}
+        </ion-item>
+      }
+    </ion-list>
+    <ion-row style="width: 100%; align-items: flex;">
+      <ion-col>
+        <ion-button class="button-earn-points" (click)="resetAnswer()">Reset</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button class="button-earn-points" (click)="submitAnswer()">Submit</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

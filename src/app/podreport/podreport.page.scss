@@ -1,0 +1,167 @@
+ion-header {
+    --box-shadow: none;
+    --border-width: 0;
+    background: #ffffff;
+    ion-toolbar, ion-item{
+      --background: #ffffff;
+      padding: 10px 10px 10px 10px;
+      --border-width: 0;
+      --box-shadow: none;
+      .progressbar-grid {
+          ion-row {
+              background-color: white;
+              .progbar {
+                  padding-top: 15px;
+                  border-radius: 10px;
+              }
+              .coin-col {
+                  padding: 0;
+                  padding-top: 2px;
+                  align-items: center;
+                  img {
+                      align-items: center;
+                      size: large;
+                  }
+              }
+          }
+      }
+    }
+}
+
+ion-content {
+    padding: 7px;
+    --background: #ffffff;
+    h1 {
+        color: #2A1C03;
+        font-weight: bold;
+        font-size: 18px;
+        padding-left: 15px;
+    }
+    ion-list {
+        background-color: #ffdb98;
+        margin: 10px;
+        ion-item {
+            --background: primary;
+            color: #2A1C03;
+            margin: 0;
+        }
+        ion-select {
+            padding: 0;
+            color: #2A1C03;
+            font-weight: bold;
+            width: 100%;
+        }
+    }
+    .container {
+        padding: 10px 10px 10px 10px;
+        background-color: #ffdb98;
+        border-radius: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        color: #FFFFFF;
+        h1 {
+            margin-top: -2px;
+            color: #2A1C03;
+            font-size: 18px;
+        }
+        .custom-list {
+            background-color: #ffdb98;
+            ion-item {
+                width: 100%;
+                border-radius: 10px 10px 10px 10px;
+                padding: 0 0 5px 0px;
+                font-size: 18px;
+                color: #2A1C03;
+                --background: transparent;
+                margin-bottom: 5px;
+                ion-row {
+                margin: 0 0 0 0;
+                padding: 0 0 0 0;
+                width: 100%;
+                ion-col {
+                    margin: 0 0 0 0;
+                    padding: 0 0 0 0;
+                }
+                }
+            }
+            ion-item:hover {
+                background-color: #E9A522;
+            }
+        }
+    }
+    .leaflet {
+        background-color: #ffdb98;
+        border-radius: 15px;
+        margin-left: 15px;
+        margin-right: 15px;
+        color: black;
+        h2 {
+            font-size: 20px;
+            margin: 0;
+            padding-left: 10px;
+        }
+        .mapleaflet {
+            padding: 2px 2px 2px 2px;
+            width: 400px;
+            height: 400px;
+            margin: 0;
+        }
+        h1 {
+            margin-top: -2px;
+            color: #2A1C03;
+            font-size: 18px;
+        }
+    }
+}
+
+ion-toolbar {
+    border: 1px solid rgb(236, 234, 234);
+    background-color: white;
+    ion-grid {
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        --border-shadow: none;
+        ion-row{
+        background-color: white;
+        --border-shadow: none;
+            ion-col {
+                text-align: center;
+                margin: 0 0 0 0;
+                padding: 0 0 0 0;
+                --border-shadow: none;
+                ion-button {
+                ion-grid {
+                    background: transparent;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    --border-shadow: none;
+                    ion-row {
+                    text-transform: none;
+                    background-color: transparent;
+                    ion-img {
+                        color: white;
+                    }
+                    span {
+                        font-size: 12px;
+                        color: #263434;
+                    }
+                    }
+                }
+                background-color: white;
+                width: 100%;
+                height: 100%;
+                color: white;
+                padding: 0;
+                margin: 0;
+                --background: transparent;
+                --border-shadow: none;
+                --border-radius: 0;
+                align-items: center;
+                font-size: 8px;
+                }
+            }
+        }
+    }
+}

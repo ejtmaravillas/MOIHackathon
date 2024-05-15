@@ -1,0 +1,231 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="padding-top: 10px; padding-bottom: 0;">
+    <ion-buttons slot="start">
+      <ion-button>
+        <ion-img
+                src="../../assets/emergancy.png"
+              ></ion-img>
+      </ion-button>
+      <ion-button>
+        <ion-img
+                src="../../assets/voice.png"
+              ></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-img
+                src="../../assets/settings.png"
+              ></ion-img>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="10">
+        <ion-searchbar color="favoritewarning" placeholder="Search by service, sector" style="border-radius: 50px 50px 50px 50px;"></ion-searchbar>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button>
+          <ion-img src="../../assets/email.png"></ion-img>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card class="user-card">
+    <ion-card-content class="user-card-content">
+      <ion-item lines="none">
+        <ion-thumbnail>
+          <img src="../../assets/avatar.jpg"/>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>Guillermo</h3>
+          <ion-progress-bar value="0.7" color="warning"></ion-progress-bar>
+          <ion-card-subtitle class="ion-text-right">70/100EXP</ion-card-subtitle>
+          <span>
+            <h2><img src="../../assets/star.png" style="width: 15px; height: 15px; padding-top: 2px;"/> Townsman </h2>
+            <h2><img src="../../assets/coin.png" style="width: 15px; height: 15px; padding-top: 2px;"/> 42 </h2>
+          </span>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <div class="slides">
+    <swiper-container class="swiper-container"
+      #swiper
+      [modules]="swiperModules"
+      [pagination]="true"
+      [direction]="'horizontal'"
+      [autoResize]="false"
+      [cssWidthAndHeight]="true"
+      [loop]="true"
+      [autoplay]="true"
+      [spaceBetween]="10"
+      [slidesPerView]="1">
+      <swiper-slide class="swiper-slide-class">
+        <ion-card class="banner-item" lines="none">
+          <ion-img src="../../assets/newsbanner1.png"></ion-img>
+        </ion-card>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-class">
+        <ion-card class="banner-item" lines="none">
+          <ion-img src="../../assets/newsbanner2.png"></ion-img>
+          <p style="color:black;">Saif bin Zayed meets with officials from the "Meta" Group</p>
+        </ion-card>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+  <ion-grid class="favorites-recent">
+    <ion-row>
+      <ion-col size="4">
+        <ion-button (click)="toggleFavoritesButton()" [color]="isFavoritesClicked ? 'favoritewarning' : 'light'" [style.opacity]="isFavoritesClicked ? 1 : 0.4">
+          Favorites
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button (click)="toggleRecentButton()" [color]="isRecentClicked ? 'favoritewarning' : 'light'" [style.opacity]="isRecentClicked ? 1 : 0.4">
+          Recent
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button (click)="toggleCaregiverButton()" [color]="isCaregiverClicked ? 'favoritewarning' : 'light'" [style.opacity]="isCaregiverClicked ? 1 : 0.4">
+          Caregiver
+        </ion-button></ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="container">
+    @if (currentListVal.length > 0) {
+      @if (status === 'Caregiver') {
+        <h1 class="ion-text-center">( On behalf of Person of Determination )</h1>
+      }
+      <ion-list class="custom-list">
+        @for (item of currentListVal; track item.valuestring) {
+          @if (status === 'Favorites') {
+            <ion-item lines="none">
+              <ion-row>
+                <ion-col size="2">
+                  <img style="padding: 10px 10px 10px 0px;" src="../../assets/{{item.imagepath}}"/>
+                </ion-col>
+                <ion-col size="8" style="padding: 11px 2px 2px 2px;">
+                  <h1 style="text-align: left; padding-left: 10px; padding-top: 20px; font-size: 18px;">{{ item.valuestring }}</h1>
+                </ion-col>
+                <ion-col size="2">
+                  <img style="padding: 20px 0 10px 20px;" src="../../assets/next.png"/>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          }
+          @else if (status === 'Recent') {
+            <ion-item lines="none">
+              <ion-row>
+                <ion-col size="2">
+                  <img style="padding: 10px 10px 10px 0px;" src="../../assets/{{item.imagepath}}"/>
+                </ion-col>
+                <ion-col size="8" style="padding: 11px 2px 2px 2px;">
+                  <h1 style="text-align: left; padding-left: 10px; padding-top: 20px; font-size: 18px;">{{ item.valuestring }}</h1>
+                </ion-col>
+                <ion-col size="2">
+                  <img style="padding: 20px 0 10px 20px;" src="../../assets/next.png"/>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          }
+          @else if (status === 'Caregiver') {
+            <ion-item lines="none">
+              <ion-row>
+                <ion-col size="2">
+                  <img style="padding: 10px 10px 10px 0px;" src="../../assets/{{item.imagepath}}"/>
+                </ion-col>
+                <ion-col size="8" style="padding: 0px 2px 2px 2px;">
+                  <h1 style="text-align: left; padding-left: 10px; padding-top: 20px; font-size: 18px;">{{ item.valuestring }}</h1>
+                </ion-col>
+                <ion-col size="2">
+                  <img style="padding: 20px 0 10px 20px;" src="../../assets/next.png"/>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          }
+        }
+        </ion-list>
+      }
+  </div>
+</ion-content>
+<ion-toolbar>
+  <ion-grid [fixed]="true">
+    <ion-row wrap>
+      <ion-col size="12/5">
+        <ion-button>
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/home.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Home</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button>
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/services.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Services</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button (click)="gotoHelp()">
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/help.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Help</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button (click)="gotoRewards()">
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/reward.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Rewards</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button (click)="gotoProfile()">
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/profile.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Profile</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>

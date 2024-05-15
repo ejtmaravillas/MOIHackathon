@@ -1,0 +1,95 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="padding-top: 10px; padding-bottom: 0;">
+    <ion-buttons slot="start">
+      <ion-button (click)="backPage()">
+        <ion-img
+                src="../../assets/close.png"
+              ></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <ion-title style="color: black">Report</ion-title>
+    <!-- <ion-row>
+      <ion-col size="11">
+        <ion-progress-bar class="progbar" value={{progTotal}} color="warning"></ion-progress-bar>
+      </ion-col>
+      <ion-col class="coin-col" size="1">
+        <img src="../../assets/coin.png"/>
+      </ion-col>
+    </ion-row> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- PHOTO ALBUM -->
+  <h1>What do you want to report?</h1>
+  <ion-row style="padding: 0px; margin-left: 15px; margin-right: 15px; background-color: #ffdb98; border-radius: 15px;">
+    <ion-col size="12" style="padding: 0px;">
+    <ion-list lines="none">
+      <ion-item>
+        <ion-select
+          aria-label="Report"
+          placeholder="Options"
+          label="Report type"
+          (ionChange)="handleChange($event)"
+          (ionCancel)="handleCancel()"
+        >
+          <ion-select-option value="Accident">Accident</ion-select-option>
+          <ion-select-option value="POD Parking Misuse">POD Parking Misuse</ion-select-option>
+          <ion-select-option value="Abuse">Abuse</ion-select-option>
+          <ion-select-option value="Accessiblity Issue">Accessiblity Issue</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="4.3">
+      <h1 style="margin-top: 20px; padding-left: 20px;">Attach Photo</h1>
+    </ion-col>
+    <ion-col>
+      <ion-button (click)="addPhotoToGallery()" style="margin-top: 15px; margin-left: 0; padding: 0;">
+        <ion-icon name="camera"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-card class="container">
+    <ion-list class="custom-list" lines="none">
+      @for (photo of photoService.photos; track photo) {
+      <ion-item size="6">
+        <ion-img [src]="photo.webviewPath" style="padding: 0;"></ion-img>
+        <ion-button (click)="confirmDelete(photo)" style="padding-left: 10px;">Delete</ion-button>
+      </ion-item>
+      }
+    </ion-list>
+  </ion-card>
+  <h1 style="padding-left: 20px;">Get Location</h1>
+  <ion-row fixed="true" style="margin-top: -25px;">
+    <ion-col size="6">
+      <h2 style="color: black; font-size: 18px; padding-left: 10px;">Longitude: {{longitude}}</h2>
+    </ion-col>
+    <ion-col size="6">
+      <h2 style="color: black; font-size: 18px; padding-left: 10px;">Latitude: {{latitude}}</h2>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button (click)="getCurrentLocation()" style="margin-left: 10px;">Go to location</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button style="margin-left: 10px;" (click)="submitReport()">Submit</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-card class="leaflet">
+    <div class="mapleaflet" id="map"></div>
+  </ion-card>
+  <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed" style="padding-bottom: 100px;">
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+    <!-- <ion-button vertical="bottom" horizontal="center" slot="fixed" style="padding-bottom: 100px;" (click)="addPhotoToGallery">
+      <ion-icon name="camera"></ion-icon>
+    </ion-button> -->
+  <!-- <div id="map" style="height: 500px; width: 500px;">
+  </div> -->
+</ion-content>

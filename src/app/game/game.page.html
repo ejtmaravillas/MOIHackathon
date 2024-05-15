@@ -1,0 +1,248 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar style="padding-top: 10px; padding-bottom: 0;">
+    <ion-buttons slot="start">
+      <ion-button (click)="gotoProfile()">
+        <ion-img
+                src="../../assets/back.png"
+              ></ion-img>
+      </ion-button>
+    </ion-buttons>
+    <h3>Rewards</h3>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h3 style="color: black; padding-left: 15px;">How to earn points?</h3>
+  <ion-card class="user-card">
+    <ion-card-content class="user-card-content">
+      <ion-item lines="none">
+        <ion-thumbnail>
+          <img src="../../assets/avatar.jpg"/>
+        </ion-thumbnail>
+        <ion-label>
+          <h3>Guillermo</h3>
+          <ion-progress-bar value="0.7" color="warning"></ion-progress-bar>
+          <ion-card-subtitle class="ion-text-right">70/100EXP</ion-card-subtitle>
+          <span>
+            <h2><img src="../../assets/star.png" style="width: 15px; height: 15px; padding-top: 2px;"/> Townsman </h2>
+            <h2><img src="../../assets/coin.png" style="width: 15px; height: 15px; padding-top: 2px;"/> 42 </h2>
+          </span>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+    <ion-buttons slot="start">
+      <ion-button>
+        Scoreboard
+      </ion-button>
+      <ion-button>
+        Earn Points
+      </ion-button>
+    </ion-buttons>
+  </ion-card>
+  <div class="slides">
+    <swiper-container class="swiper-container"
+      #swiper
+      [modules]="swiperModules"
+      [pagination]="true"
+      [direction]="'horizontal'"
+      [autoResize]="false"
+      [cssWidthAndHeight]="true"
+      [loop]="true"
+      [autoplay]="true"
+      [spaceBetween]="10"
+      [slidesPerView]="2.75">
+      <swiper-slide class="swiper-slide-class">
+        <ion-card style="padding: 11px 2px 2px 2px;">
+            <img src="../../assets/game.png" style="padding-top: 12px;"/>
+              <p class="ion-text-center" style="padding-top: 4px;">Play to refresh your traffic knowledge</p>
+        </ion-card>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-class">
+        <ion-card style="padding: 15px 2px 2px 2px;">
+          <img src="../../assets/star.png" style="padding-top: 5px;"/>
+          <p class="ion-text-center">Feedback on this app</p>
+        </ion-card>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-class">
+        <ion-card>
+          <img src="../../assets/feedback.png" style="padding-top: 5px;"/>
+          <p class="ion-text-center" style="padding-top: 10px; margin: 0;">Participate in surveys</p>
+        </ion-card>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-class">
+        <ion-card style="padding: 16px 2px 2px 2px;">
+          <img src="../../assets/report.png"/>
+          <p class="ion-text-center">Report misuse of POD parking</p>
+        </ion-card>
+      </swiper-slide>
+      <swiper-slide class="swiper-slide-class">
+        <ion-card style="padding: 13px 2px 2px 2px;">
+          <img src="../../assets/envelope.png" style="padding-left: 2px; padding-right: 2px;"/>
+          <p class="ion-text-center" style="padding-top: 4px;">Report accessibility issues</p>
+        </ion-card>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+  <ion-grid class="favorites-recent">
+    <ion-row>
+      <ion-col size="4">
+        <ion-button (click)="togglePlayButton()" [color]="isPlayClicked ? 'favoritewarning' : 'light'" [style.opacity]="isPlayClicked ? 1 : 0.4">
+          Play
+        </ion-button>
+        <!-- <ion-progress-bar value="1" [color]="isFavoritesClicked ? 'medium' : 'light'"></ion-progress-bar> -->
+      </ion-col>
+      <ion-col size="4">
+        <ion-button (click)="toggleContributeButton()" [color]="isContributeClicked ? 'favoritewarning' : 'light'" [style.opacity]="isContributeClicked ? 1 : 0.4">
+          Contribute
+        </ion-button>
+        <!-- <ion-progress-bar value="1" [color]="isRecentClicked ? 'medium' : 'light'"></ion-progress-bar> -->
+      </ion-col>
+      <ion-col size="4">
+        <ion-button (click)="toggleFeedbackButton()" [color]="isFeedbackClicked ? 'favoritewarning' : 'light'" [style.opacity]="isFeedbackClicked ? 1 : 0.4">
+          Feedback
+        </ion-button>
+        <!-- <ion-progress-bar value="1" [color]="isRecentClicked ? 'medium' : 'light'"></ion-progress-bar> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="container">
+    @if (currentListVal.length > 0) {
+      @if (status === 'Learn') {
+        <h1 class="ion-text-center">Challenge yourself and try our games</h1>
+      }
+      @else if (status === 'Surveys') {
+        <h1 class="ion-text-center">Speak up and enchance our environment together</h1>
+      }
+      @else if (status === 'Feedback') {
+        <h1 class="ion-text-center">Share your voice and make a difference</h1>
+      }
+      <ion-list class="custom-list">
+        @for (item of currentListVal; track item.valuestring) {
+          @if (status === 'Learn') {
+            <ion-item lines="none">
+              <ion-row>
+                <ion-col size="2">
+                  <img style="padding: 10px 10px 10px 0px;" src="../../assets/{{item.imagepath}}"/>
+                </ion-col>
+                <ion-col size="7" style="padding: 11px 2px 2px 2px;">
+                  <h1>{{ item.valuestring }}</h1>
+                </ion-col>
+                <ion-col size="3">
+                  <ion-button class="button-item" (click)="playGame()">Play</ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          }
+          @else if (status === 'Surveys') {
+            <ion-item lines="none">
+              <ion-row>
+                <ion-col size="2">
+                  <img style="padding: 10px 10px 10px 0px;" src="../../assets/{{item.imagepath}}"/>
+                </ion-col>
+                <ion-col size="8" style="padding: 11px 2px 2px 2px;">
+                  <h1>{{ item.valuestring }}</h1>
+                </ion-col>
+                <ion-col size="2">
+                  <img style="padding: 20px 0 10px 20px;" src="../../assets/next.png"/>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          }
+          @else if (status === 'Feedback') {
+            <ion-item lines="none" (click)="gotoReport()">
+              <ion-row>
+                <ion-col size="2">
+                  <img style="padding: 10px 10px 10px 0px;" src="../../assets/{{item.imagepath}}"/>
+                </ion-col>
+                <ion-col size="8">
+                  <h1>{{ item.valuestring }}</h1>
+                </ion-col>
+                <ion-col size="2">
+                  <img style="padding: 20px 0 10px 20px;" src="../../assets/next.png"/>
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          }
+        }
+        </ion-list>
+      }
+  </div>
+</ion-content>
+
+<ion-toolbar>
+  <ion-grid [fixed]="true">
+    <ion-row wrap>
+      <ion-col size="12/5">
+        <ion-button>
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/home.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Home</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button>
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/services.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Services</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button (click)="gotoHelp()">
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/help.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Help</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button (click)="gotoRewards()">
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/reward.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Rewards</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+      <ion-col size="12/5">
+        <ion-button (click)="gotoProfile()">
+          <ion-grid>
+            <ion-row style="padding-bottom: 5px;">
+              <ion-img
+                src="../../assets/profile.png"
+              ></ion-img>
+            </ion-row>
+            <ion-row>
+              <span>Profile</span>
+            </ion-row>
+          </ion-grid>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>

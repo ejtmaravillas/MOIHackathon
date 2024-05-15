@@ -1,0 +1,15 @@
+background : #460f9d rgb(70,15,157)
+	   :  #7f31fb rgb(127,49,251)
+
+text       : #eff5ee rgb(239,245,238)
+           : #e2cdb4 rgb(226,205,180)
+
+Button     : #05afd3 rgb(5,175,211)
+	   : #33caef rgb(51,202,239)
+
+linear-gradient(90deg, rgb(70,15,157) 0%, rgb(127,49,251) 35%, rgb(127,49,251) 100%);
+
+
+rgba(43,90,148,1)
+
+linear-gradient(90deg, rgba(43,90,148,1) 0%, rgba(45,112,229,1) 50%, rgba(45,112,229,1) 100%);
