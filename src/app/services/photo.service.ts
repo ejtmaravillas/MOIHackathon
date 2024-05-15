@@ -42,7 +42,6 @@ export class PhotoService {
       });
       return !!result;
     } catch (error) {
-      // If an error occurs, it means the file doesn't exist
       return false;
     }
   }
@@ -67,8 +66,6 @@ export class PhotoService {
         }
       }
     }
-    console.log('value',value);
-    console.log('photos',this.photos);
   }
 
   private async savePicture(photo: Photo) {
@@ -93,14 +90,9 @@ export class PhotoService {
         webviewPath: photo.webPath
       }
     }
-    // return {
-    //   filepath: fileName,
-    //   webviewPath: photo.webPath
-    // }
   }
 
   private async readAsBase64(photo: Photo) {
-    // "hybrid" will detect Cordova or Capacitor
     if (this.platform.is('hybrid')) {
       const file = await Filesystem.readFile({
         path: photo.path!
@@ -114,11 +106,6 @@ export class PhotoService {
 
       return await this.convertBlobtoBase64(blob) as string;
     }
-    // // Fetch the photo, read as a blob, then convert to base64 format
-    // const response = await fetch(photo.webPath!);
-    // const blob = await response.blob();
-
-    // return await this.convertBlobtoBase64(blob) as string;
   }
 
   private convertBlobtoBase64 = (blob: Blob) => new Promise((resolve, reject) => {

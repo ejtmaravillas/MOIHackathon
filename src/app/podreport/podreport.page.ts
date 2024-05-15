@@ -164,23 +164,13 @@ export class PODReportPage implements OnInit {
         message: 'Do you want to leave without submitting?',
         buttons: [
           {
-            text: 'Yes',
+            text: 'No',
             role: 'cancel',
-            handler: () => {
-              for (let photo of this.photoService.photos) {
-                this.deletePhoto(photo);
-              }
-              if (this.marker) {
-                this.map.removeLayer(this.marker);
-              }
-              this.router.navigate(['/game']);
-            }
           },
           {
-            text: 'No',
+            text: 'Yes',
             role: 'okay',
             handler: () => {
-              this.submitReport();
               for (let photo of this.photoService.photos) {
                 this.deletePhoto(photo);
               }
@@ -207,55 +197,30 @@ export class PODReportPage implements OnInit {
   }
 
   async getCurrentLocation() {
-    console.log('getCurrentLocation initialized');
     try {
       const permissionStatus = await Geolocation.checkPermissions();
-      console.log('Permission status: ', permissionStatus);
       if (permissionStatus?.location != 'granted') {
         const requestStatus = await Geolocation.requestPermissions();
         if (requestStatus.location != 'granted') {
           return ;
         }
       }
-
       let options: PositionOptions = {
         maximumAge: 3000,
         timeout: 1000,
         enableHighAccuracy: true
       };
-      console.log('getCurrentPosition');
       const position = await Geolocation.getCurrentPosition(options);
       if (position) {
         this.longitude = position.coords.longitude;
         this.latitude = position.coords.latitude;
-        // this.drawMapMarker(this.longitude, this.latitude);
-        // this.testAlert(this.longitude, this.latitude);
       }
       this.drawMapMarker();
-      // L.marker([position.coords.longitude, position.coords.longitude], {icon: this.locIcon}).addTo(this.map);
     }
     catch (e) {
-      console.log(e);
-      console.log('getCurrentLocation catch ',this.longitude, this.latitude);
       this.getLocationAlert('GPS unavailable');
       this.drawMapMarker();
-      // throw(e);
     }
-    // this.map.setView([this.longitude, this.latitude], 15);
-    // if (!this.marker) {
-    //   console.log('enter no marker');
-    //   console.log('longitude', this.longitude);
-    //   console.log('latitude', this.latitude);
-    //   this.marker = L.marker([this.latitude, this.longitude], {icon: this.locIcon, draggable: true}).addTo(this.map);
-    //   this.marker.on('dragend', this.onMarkerDragEnd.bind(this));
-    // }
-    // else {
-    //   console.log('enter with marker');
-    //   console.log('longitude', this.longitude);
-    //   console.log('latitude', this.latitude);
-    //   this.map.setView([this.latitude, this.longitude], 15);
-    //   this.marker.setLatLng([this.latitude, this.longitude]);
-    // }
   }
 
   async getLocationAlert(message: string) {
@@ -332,7 +297,6 @@ export class PODReportPage implements OnInit {
       });
       return !!result;
     } catch (error) {
-      // If an error occurs, it means the file doesn't exist
       return false;
     }
   }
@@ -359,35 +323,26 @@ export class PODReportPage implements OnInit {
   }
 
   async deletePhoto(photo: UserPhoto) {
-    console.log(this.photoService.photos);
     try {
       const fileExists = await this.checkFileExists(photo.filepath);
       if (!fileExists) {
-        console.log('File deleted from filesystem');
-        // Update the photos array after deletion
         this.photoService.photos = this.photoService.photos.filter(p => p !== photo);
       }
       else
       {
-        console.error('File still exists');
         await Filesystem.deleteFile({
           path: photo.filepath,
           directory: Directory.Data
         });
         this.photoService.photos = this.photoService.photos.filter(p => p !== photo);
-        // await this.photoService.loadSaved();
       }
-      console.log('Photo deleted Successfully');
     }
     catch (error) {
       console.log(error);
     }
-    console.log(this.photoService.photos);
   }
 
-    //drop down menu ion-select
   handleChange(e: any) {
-    console.log('ionChange fired with value: ' + e.detail.value);
     this.report = e.detail.value;
   }
   handleCancel() {
@@ -397,10 +352,7 @@ export class PODReportPage implements OnInit {
   onMapClick(event: any) {
     this.longitude = event.latlng.lng;
     this.latitude = event.latlng.lat;
-    console.log(event.latlng);
-    // this.drawMapMarker(this.longitude, this.latitude);
     if (!this.marker) {
-      console.log('e.target '+event.target);
       this.marker = L.marker(event.latlng, {icon: this.locIcon, draggable: true}).addTo(event.target);
       this.marker.on('dragend', this.onMarkerDragEnd.bind(this));
     }
@@ -408,21 +360,15 @@ export class PODReportPage implements OnInit {
       this.marker.setLatLng(event.latlng);
     }
     this.cdr.detectChanges();
-    console.log('onMapClick',this.longitude, this.latitude);
-    console.log('onMapClick',event.latlng.lng, event.latlng.lat);
  }
 
   onMarkerDragEnd(e: L.LeafletEvent) {
-    // Get the latlng of the marker after dragging
     this.latitude = e.target.getLatLng().lat;
     this.longitude = e.target.getLatLng().lng;
-    console.log('Marker Latitude:', e.target.getLatLng().lat);
-    console.log('Marker Longitude:', e.target.getLatLng().lng);
   }
 
   getMarkerPos(event:any) {
     this.map.on('click', this.onMapClick);
-    console.log('getMarkerPos ',this.longitude, this.latitude);
   }
 
   drawMapMarker() {
@@ -435,18 +381,6 @@ export class PODReportPage implements OnInit {
       this.map.setView([this.latitude, this.longitude], 15);
     }
   }
-
-  // ionViewDidEnter() {
-  //   console.log()
-  //   if (this.map) {
-  //     this.map.remove();
-  //   }
-  //   if (this.marker) {
-  //     this.marker.remove();
-  //   }
-  //   this.initializeMap();
-  //   this.getCurrentLocation();
-  // }
 
   private initializeMap() {
     this.map = L.map('map', {
@@ -465,6 +399,5 @@ export class PODReportPage implements OnInit {
     });
 
     this.map.on('click', this.onMapClick.bind(this));
-    // this.drawMapMarker();
   }
 }

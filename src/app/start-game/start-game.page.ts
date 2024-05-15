@@ -272,7 +272,6 @@ export class StartGamePage{
     },
   ];
 
-  // public answers: {color: string[], answer: number}[] = [];
   answers: Answer[] = [];
 
   private initializeAnswers() {
@@ -296,8 +295,6 @@ export class StartGamePage{
   ];
 
   swiperInit() {
-    console.log('init');
-    console.log('after initAnswers');
     this.currentquestion = this.questions[0].choices;
     if (this.questions[0].difficulty == 'e') {
       this.difficulty = 'Easy';
@@ -312,34 +309,13 @@ export class StartGamePage{
     }
   }
 
-  navigationNext() {
-    console.log('NEXT');
-    console.log('Current Index: '+ this.swiperRef?.nativeElement.swiper.activeIndex);
-    console.log('Previous Index: '+ this.swiperRef?.nativeElement.swiper.previousIndexIndex);
-  }
-
-  navigationPrev() {
-    console.log('PREV');
-    console.log('Current Index: '+ this.swiperRef?.nativeElement.swiper.activeIndex);
-    console.log('Previous Index: '+ this.swiperRef?.nativeElement.swiper.previousIndexIndex);
-  }
-
   getAnswer(index: number) {
-    console.log('answer click' + index);
     this.answers[this.image_num - 1].answer = index + 1;
     this.answers[this.image_num - 1].color = ['transparent','transparent','transparent','transparent'];
     this.answers[this.image_num - 1].color[index] = '#5BB1B1';
-    console.log(this.answers[this.image_num - 1].answer);
-    console.log(this.answers[this.image_num - 1].color[0]);
-    console.log(this.answers[this.image_num - 1].color[1]);
-    console.log(this.answers[this.image_num - 1].color[2]);
-    console.log(this.answers[this.image_num - 1].color[3]);
 
   }
   swiperSlideChanged() {
-    console.log('changed: ');
-    console.log('Current Index: '+ this.swiperRef?.nativeElement.swiper.activeIndex);
-    console.log('Previous Index: '+ this.swiperRef?.nativeElement.swiper.previousIndexIndex);
     this.image_num = this.swiperRef?.nativeElement.swiper.activeIndex + 1;
     this.currentquestion = this.questions[this.image_num - 1].choices;
     for (let i = 0; i < 4; i++) {
@@ -358,13 +334,7 @@ export class StartGamePage{
     }
   }
 
-  swipeNext() {
-    console.log('swipeNext');
-    // this.swiper.slideNext(1000);
-  }
-
   backPage() {
-    console.log('Back');
     this.router.navigate(['/game']);
   }
 
@@ -377,7 +347,6 @@ export class StartGamePage{
     this.customMessage = 'NULL';
     this.customHeader = 'failed';
     this.submit = 0;
-    // this.swiper.slideTo(0,0);
   }
 
   submitAnswer() {
@@ -407,23 +376,5 @@ export class StartGamePage{
     else {
       this.customHeader = 'Failed';
     }
-    console.log('score: '+this.score);
-    console.log('submit: '+this.submit);
   }
-  // startGame() {
-  //   console.log('Play Game');
-  //   this.router.navigate(['/game']);
-  // }
-
-  // findIndex(element: string): { category: string, index: number } | null {
-  //   for (const category in this.categoryLists) {
-  //     if (this.categoryLists.hasOwnProperty(category)) {
-  //       const index = this.categoryLists[category].indexOf(element);
-  //       if (index !== -1) {
-  //         return { category: category, index: index };
-  //       }
-  //     }
-  //   }
-  //   return null;
-  // }
 }

@@ -136,8 +136,6 @@ export class LandingPagePage{
     this.isFavoritesClicked = true;
     this.isCaregiverClicked = false;
     this.changeList('Favorites');
-    // console.log(this.isFavoritesClicked);
-    // console.log(this.isRecentClicked);
 
   }
   toggleRecentButton() {
@@ -146,7 +144,6 @@ export class LandingPagePage{
     this.isRecentClicked = true;
     this.isCaregiverClicked = false;
     this.changeList('Recent');
-    // console.log(this.isFavoritesClicked);
     // console.log(this.isRecentClicked);
   }
 
@@ -156,17 +153,13 @@ export class LandingPagePage{
     this.isRecentClicked = false;
     this.isCaregiverClicked = true;
     this.changeList('Caregiver');
-    // console.log(this.isFavoritesClicked);
-    // console.log(this.isRecentClicked);
   }
 
   gotoRewards() {
-    console.log('go to rewards');
     this.router.navigate(['/game']);
   }
 
   gotoProfile() {
-    console.log('go to rewards');
     this.router.navigate(['/landing-page']);
   }
 
@@ -193,7 +186,6 @@ export class LandingPagePage{
   }
 
   gotoHelp() {
-    console.log('go to page');
     this.router.navigate(['/helppage']);
   }
 
@@ -201,31 +193,21 @@ export class LandingPagePage{
     this.changeList('Favorites');
   }
 
-  swiperSlideChanged(e: any) {
-    console.log('changed: ', e);
-  }
   changeList(category: string) {
     console.log(category);
     this.status = category;
-    console.log('status ' + this.status);
     for (let i = 0; i < this.categoryLists[category].length; i++) {
       this.currentListVal.push({valuestring: this.categoryLists2[category][i].label, imagepath: this.categoryLists2[category][i].image});
       this.currentList = this.categoryLists[category];
-      // this.currentListVal[i].value = this.categoryLists[category][i].label;
     }
-    // console.log(this.categoryLists[category][].label);
-    // this.currentList = this.categoryLists[category][0].label[0];
   }
 
   playGame() {
-    console.log('Play Game');
     this.router.navigate(['/game']);
   }
 
   takeSurvey(item: string) {
-    console.log(item);
     const result = this.findIndex(item);
-    console.log(result?.index);
     if (result?.index === 0) {
       this.router.navigate(['details/693134']);
     }
@@ -235,9 +217,7 @@ export class LandingPagePage{
   }
 
   writeFeedback(item: string) {
-    console.log(item);
     const result = this.findIndex(item);
-    console.log(result?.index);
     if (result?.index === 0) {
       this.router.navigate(['details/693134']);
     }

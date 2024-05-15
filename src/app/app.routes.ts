@@ -2,25 +2,9 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./home/home.page').then((m) => m.HomePage),
-  },
-  {
     path: '',
     redirectTo: 'landing-page',
     pathMatch: 'full',
-  },
-  {
-    path: 'details/:id',
-    loadComponent: () => import('./details/details.page').then( m => m.DetailsPage)
-  },
-  {
-    path: 'home-defer',
-    loadComponent: () => import('./home-defer/home-defer.page').then( m => m.HomeDeferPage)
-  },
-  {
-    path: 'profile',
-    loadComponent: () => import('./profile/profile.page').then( m => m.ProfilePage)
   },
   {
     path: 'game',
@@ -33,10 +17,6 @@ export const routes: Routes = [
   {
     path: 'start-game',
     loadComponent: () => import('./start-game/start-game.page').then( m => m.StartGamePage)
-  },
-  {
-    path: 'phaser-game',
-    loadComponent: () => import('./phaser-game/phaser-game.page').then( m => m.PhaserGamePage)
   },
   {
     path: 'podreport',
