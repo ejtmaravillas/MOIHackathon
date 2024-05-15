@@ -11,6 +11,7 @@ Make sure you have the following installed:
 
 - Node.js (https://nodejs.org/en/download)
 - npm (Node package manager, comes with Node.js)
+- git (you can download the link from here https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Install ionic CLI globally
 
