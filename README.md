@@ -12,6 +12,16 @@ Solutions implemented:
 5.	**Reporting channels** exist as a feedback channel for ‘offline’ issues. For instance, users can report misuse or absence of accessibility facilities in their physical environment. This too can be used in conjunction with the points system to encourage feedback from users. 
 6.	Other ways to earn points such as games are integrated into the app to create a **sense of discovery and fun** into the app. 
 
+## Approach
+We visualised our ideas using Figma. This [prototype](https://www.figma.com/proto/hj5UAqNIwyWJgQ5gMgHk92/MOI?page-id=0%3A1&node-id=208-5409&viewport=-983%2C416%2C0.13&t=j0Z1ycdxIDhtfx4D-1&scaling=min-zoom&starting-point-node-id=208%3A5409) is the best visual representation of our ideas. 
+
+At the same time, we created a working version of the app (code stored in this repository) using the ionic framework. Rather than completely mimic the design we envisioned on Figma, we prioritised basic functionality of the various icons. More time was also spent creating the function to report issues (complete with photo capture and geolocation capture) and creating a viable game. 
+
+If given more time, we would have liked to explore other ideas:
+1.	Ability to automatically detect accidents via the app. We’d come across [research](https://ieeexplore.ieee.org/document/8123430) into a system that can detect accidents using mobile phone technologies. Integrating this into the app would allow for real-time accident reporting.
+2.	Integrating chatbots in the service journey so that the entire service journey is guided and interactive. 
+
+
 ## Getting Started
 
 ### Prerequisites
@@ -75,4 +85,4 @@ ionic serve
 - On the top left corner is a drop-down menu (Dimensions) where you can choose which mobile device you want the pages to be displayed on.
 
 ## Misc
-A Figma prototype of the redesigned MOI App can be found [here](https://www.figma.com/proto/hj5UAqNIwyWJgQ5gMgHk92/MOI?page-id=0%3A1&node-id=208-5409&viewport=-983%2C416%2C0.13&t=j0Z1ycdxIDhtfx4D-1&scaling=min-zoom&starting-point-node-id=208%3A5409)
+APK google drive link here?
