@@ -15,7 +15,7 @@ Make sure you have the following installed:
 
 ### Install ionic CLI globally
 
-- run `npm install -g ionic` in the terminal \
+- run `npm install -g @ionic/cli@latest` in the terminal \
 
 ### Clone the repository
 
