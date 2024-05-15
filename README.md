@@ -1,8 +1,16 @@
 # MOI Hackthon
 
 ## Problem Statement
+To redesign the MOI UAE App so that more citizens apply for services via the app. In particular, the redesign should consider accessibility issues for **people of determination and senior citizens**. The redesign should also consider integrating **gamification** elements to enhance users’ experience on the platform. 
 
 ## Solution
+Solutions implemented: 
+1.	A **simplified user interface** is used so that understanding and navigation of the app is straightforward.
+2.	People of determination or senior citizens can **authorise a trusted caregiver** to perform actions on their behalf. This is especially for useful for those who have difficulties reading and navigating phones in general. 
+3.	**Introduction of a points system** with other related gamification mechanics (such as game status and rewards) to encourage specific behaviours. For example, points are used to encourage users to complete app tutorials and to apply for services on the app. 
+4.	**Feedback channels** such as asking for feedback on the app as well as feedback via longer-form surveys are integrated into the app. Integrating these in the app allows MOI to better target surveys at specific groups of users (such as people of determination, senior citizens and/or their caregivers). These feedback channels allow users to co-create solutions for the app. This is used in conjunction with the points system to encourage feedback from users. 
+5.	**Reporting channels** exist as a feedback channel for ‘offline’ issues. For instance, users can report misuse or absence of accessibility facilities in their physical environment. This too can be used in conjunction with the points system to encourage feedback from users. 
+6.	Other ways to earn points such as games are integrated into the app to create a **sense of discovery and fun** into the app. 
 
 ## Getting Started
 
@@ -15,18 +23,18 @@ Make sure you have the following installed:
 
 ### Install ionic CLI globally
 
-- run `npm install -g @ionic/cli@latest` in the terminal \
+- run `npm install -g @ionic/cli@latest` in the terminal
 
 ### Clone the repository
 
 - run `git clone https://github.com/ejtmaravillas/MOIHackathon`
 
-### Install Dependencies
+### Install dependencies
 
-Navigate into the project root directory and install the required dependencies:
+Navigate into the project root directory (./MOIHackathon is the project root directory) and install the required dependencies:
 
 ```bash
-cd ./MOIHackathon (./MOIHackathon is the project root directory)
+cd ./MOIHackathon 
 npm install
 ```
 
@@ -62,7 +70,9 @@ ionic serve
 ```
 ### Change the mobile view to your preference
 
-- `press F12` to open developer tools.
-- click Toggle device emulation (Ctrl + Shift + M)
-- On the top left corner is a drop-down menu (Dimensions) where you can choose which mobile device you want the pages to be displayed.
+- Press `F12` to open Developer Tols.
+- Click Toggle Device Emulation (`Ctrl` + `Shift` + `M`)
+- On the top left corner is a drop-down menu (Dimensions) where you can choose which mobile device you want the pages to be displayed on.
 
+## Misc
+A Figma prototype of the redesigned MOI App can be found [here](https://www.figma.com/proto/hj5UAqNIwyWJgQ5gMgHk92/MOI?page-id=0%3A1&node-id=208-5409&viewport=-983%2C416%2C0.13&t=j0Z1ycdxIDhtfx4D-1&scaling=min-zoom&starting-point-node-id=208%3A5409)
