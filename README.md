@@ -31,7 +31,7 @@ npm install
 
 ### Run
 
-- run ionic serve in a terminal from the project root
+- run `ionic serve` in the terminal from the project root
 
 ```bash
 ionic serve
