@@ -57,11 +57,12 @@ npm install -g --force @ionic/cli
 ```
 
 - After this, run
-  ```bash
-  ionic serve
-  ```
+```bash
+ionic serve
+```
 ### Change the mobile view to your preference
 
-- `press F12` to go to mobile view.
-- On the top left corner is a drop-down menu where you can choose which mobile device you want the pages to be displayed.
+- `press F12` to open developer tools.
+- click Toggle device emulation (Ctrl + Shift + M)
+- On the top left corner is a drop-down menu (Dimensions) where you can choose which mobile device you want the pages to be displayed.
 
