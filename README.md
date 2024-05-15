@@ -23,10 +23,10 @@ Make sure you have the following installed:
 
 ### Install Dependencies
 
-Navigate into the project directory and install the required dependencies:
+Navigate into the project root directory and install the required dependencies:
 
 ```bash
-cd /project/root
+cd ./MOIHackathon (./MOIHackathon is the project root directory)
 npm install
 ```
 
@@ -37,7 +37,29 @@ npm install
 ```bash
 ionic serve
 ```
+### Troubleshooting
 
+- if you encounter an error after ionic serve, this is because of the package-lock.json.
+
+```bash
+[ERROR] Invalid project type: angular-standalone (project config:
+        .\ionic.config.json).
+
+        Project type must be one of: angular, ionic-angular, ionic1, custom,   
+        react, vue
+
+Bad project type: undefined
+```
+
+- To fix this, run 
+```bash
+npm install -g --force @ionic/cli
+```
+
+- After this, run
+  ```bash
+  ionic serve
+  ```
 ### Change the mobile view to your preference
 
 - `press F12` to go to mobile view.
