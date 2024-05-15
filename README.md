@@ -36,3 +36,9 @@ npm install
 ```bash
 ionic serve
 ```
+
+### Change the mobile view to your preference
+
+- `press F12` to go to mobile view.
+- On the top left corner is a drop-down menu where you can choose which mobile device you want the pages to be displayed.
+
